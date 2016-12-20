@@ -19,8 +19,11 @@ if [ -n "$GITHUB_API_KEY" ]; then
 	git clone -b ${TARGET_BRANCH} ${REPO} ${TARGET_DIR}
 	rsync -rt --delete $SOURCE_DIR/ $TARGET_DIR/
 	cd $TARGET_DIR
-	git add -a .
-	git -c user.name='travis' -c user.email='travis'
+	git init
+	git checkout -b $TARGET_BRANCH
+	git config user.name "travis"
+	git config user.email "travis"
+	git add -A .
 	git commit -m "Deploy to GitHub Pages"
 	OWNER=`dirname $TRAVIS_REPO_SLUG`
 	git push -f -q https://$OWNER:$GITHUB_API_KEY@github.com/$TRAVIS_REPO_SLUG $TARGET_BRANCH > /dev/null 2>&1
