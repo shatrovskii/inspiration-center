@@ -11,9 +11,10 @@ else
 		git clone -b ${TARGET_BRANCH} ${REPO} ${PUBLISH_DIR}
 
 		if [ "$TRAVIS_BRANCH" == "$MASTER_BRANCH" ]; then 
-			TARGET_DIR=$(mkdir -p $PUBLISH_DIR)
+			TARGET_DIR=$PUBLISH_DIR
 		else
-			TARGET_DIR=$(mkdir -p $PUBLISH_DIR/$TRAVIS_BRANCH)
+			TARGET_DIR=$PUBLISH_DIR/$TRAVIS_BRANCH
+			mkdir -p TARGET_DIR
 		fi
 		
 		rsync -rt --delete $SOURCE_DIR/ $TARGET_DIR/
