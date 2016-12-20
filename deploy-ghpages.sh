@@ -19,8 +19,6 @@ else
 		
 		rsync -rt --delete $SOURCE_DIR/ $TARGET_DIR/
 		cd $PUBLISH_DIR
-		git init
-		git checkout -b $TARGET_BRANCH
 		git config user.name "travis"
 		git config user.email "travis"
 		git add -A .
