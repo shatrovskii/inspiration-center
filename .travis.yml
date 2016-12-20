@@ -2,4 +2,11 @@ language: node_js
 node_js:
   - "7"
 script: 
+  - npm run build
   - npm run deploy
+env:
+  global:
+    - TARGET_BRANCH="gh-pages"
+    - MASTER_BRANCH="master"
+    - SOURCE_DIR="dist"
+    - TARGET_DIR=".publish"
