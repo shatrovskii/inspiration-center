@@ -14,4 +14,5 @@ if [ -n "$GITHUB_API_KEY" ]; then
 	REPO_SLUG_ARR=($TRAVIS_REPO_SLUG)
 	unset IFS
 	git push -f -q https://$REPO_SLUG_ARR:$GITHUB_API_KEY@github.com/$TRAVIS_REPO_SLUG gh-pages
+	cd "$TRAVIS_BUILD_DIR"
 fi
