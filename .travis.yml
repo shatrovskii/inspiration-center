@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - "7"
-script: npm run build && npm run deploy
+script: npm run build
 after_success: ./deploy-ghpages.sh
 env:
   global:
