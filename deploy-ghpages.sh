@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -ev
 
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
 	echo "Travis should not deploy from pull requests"
