@@ -7,11 +7,14 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
 fi
 
 if [ -n "$GITHUB_API_KEY" ]; then
+	echo "We have API key"
 	REPO=$(git config remote.origin.url)
 
 	if [ "$TRAVIS_BRANCH" == "$MASTER_BRANCH" ]; then 
+		echo "This is master branch"
 		mkdir -p $TARGET_DIR
 	else
+		echo "This is not master branch"
 		mkdir -p $TARGET_DIR/$TRAVIS_BRANCH
 	fi
 
@@ -28,4 +31,5 @@ if [ -n "$GITHUB_API_KEY" ]; then
 	OWNER=`dirname $TRAVIS_REPO_SLUG`
 	git push -f -q https://$OWNER:$GITHUB_API_KEY@github.com/$TRAVIS_REPO_SLUG $TARGET_BRANCH > /dev/null 2>&1
 	cd $TRAVIS_BUILD_DIR
+	echo "The end"
 fi
