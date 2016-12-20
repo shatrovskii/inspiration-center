@@ -4,7 +4,7 @@ set -e
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
 	echo "Travis should not deploy from pull requests"
   	exit 0
-else
+fi
 
 if [ -n "$GITHUB_API_KEY" ]; then
 	REPO=$(git config remote.origin.url)

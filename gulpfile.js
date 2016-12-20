@@ -1,8 +1,7 @@
 var gulp = require("gulp"),
 	yaml = require('gulp-yaml'),
 	clean = require('gulp-clean'),
-	jsoncombine = require("gulp-jsoncombine"),
-	ghPages = require('gulp-gh-pages');
+	jsoncombine = require("gulp-jsoncombine")
 
 gulp.task('clean', function() {
   return gulp.src(['dist'], {read: false})
@@ -26,11 +25,6 @@ gulp.task('yaml', ['clean'], function() {
 })
 
 gulp.task('build', ['yaml'])
-
-gulp.task('deploy', function() {
-  return gulp.src('./dist/**/*')
-    .pipe(ghPages());
-});
 
 gulp.task('watch', function() {
 	gulp.watch(['./src/**/*', 'gulpfile.js'], ['build'])
