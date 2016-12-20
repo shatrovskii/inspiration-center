@@ -25,7 +25,7 @@ else
 		git add -A .
 		git commit -m "Deploy to GitHub Pages"
 		OWNER=`dirname $TRAVIS_REPO_SLUG`
-		git push -f -q https://$OWNER:$GITHUB_API_KEY@github.com/$TRAVIS_REPO_SLUG $TARGET_BRANCH > /dev/null 2>&1
+		git push -f -q https://$OWNER:$GITHUB_API_TOKEN@github.com/$TRAVIS_REPO_SLUG $TARGET_BRANCH > /dev/null 2>&1
 		cd $TRAVIS_BUILD_DIR
 	fi
 fi
