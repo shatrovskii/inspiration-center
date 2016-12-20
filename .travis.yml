@@ -8,4 +8,4 @@ env:
     - TARGET_BRANCH="gh-pages"
     - MASTER_BRANCH="master"
     - SOURCE_DIR="dist"
-    - TARGET_DIR=".publish"
+    - PUBLISH_DIR=".publish"
