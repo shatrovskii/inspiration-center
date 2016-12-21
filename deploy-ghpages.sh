@@ -17,7 +17,7 @@ else
 			mkdir -p TARGET_DIR
 		fi
 		
-		rsync -rt --delete $SOURCE_DIR/ $TARGET_DIR/
+		rsync -rt --delete --exclude .git $SOURCE_DIR/ $TARGET_DIR/
 		cd $PUBLISH_DIR
 		git config user.name "travis"
 		git config user.email "travis"
