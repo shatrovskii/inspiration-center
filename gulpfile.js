@@ -9,15 +9,21 @@ gulp.task('clean', function() {
 });
 
 gulp.task('yaml', ['clean'], function() {
-	return gulp.src('./src/categories/*.yml')
+	return gulp.src('./src/**/*.yml')
 		.pipe(yaml({
 			safe: true,
 			space: 2
 		}))
-		.pipe(jsoncombine('categories.json', function(data) {
-			var result = [];
+		.pipe(jsoncombine('config.json', (data, meta) => {
+			var result = {};
 			for (key in data) {
-				result.push(data[key])
+				if (~key.indexOf('/')) {
+					var collectionName = key.split('/')[0]
+					var collection = result[collectionName] || (result[collectionName] = [])
+					collection.push(data[key])
+				} else {
+					result[key] = data[key]
+				}
 			}
 			return new Buffer(JSON.stringify(result));
 		}))

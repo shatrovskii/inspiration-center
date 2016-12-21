@@ -21,7 +21,7 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
-    "gulp-jsoncombine": "^1.0.3",
+    "gulp-jsoncombine": "https://github.com/reflog/gulp-jsoncombine.git",
     "gulp-yaml": "^1.0.1"
   }
 }
