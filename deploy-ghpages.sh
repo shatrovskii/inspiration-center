@@ -18,6 +18,7 @@ else
 		fi
 		
 		rsync -r -f"- */" -f"+ *" --delete $SOURCE_DIR/ $TARGET_DIR/
+		rsync -r -f"- */" -f"+ *" --delete $SOURCE_DIR/img/ $TARGET_DIR/img/
 		cd $PUBLISH_DIR
 		git config user.name "travis"
 		git config user.email "travis"

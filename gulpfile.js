@@ -30,7 +30,12 @@ gulp.task('yaml', ['clean'], function() {
 		.pipe(gulp.dest('./dist'));
 })
 
-gulp.task('build', ['yaml'])
+gulp.task('images', ['clean'], function() {
+	return gulp.src(['./img/*'])
+		.pipe(gulp.dest('./dist/img'))
+})
+
+gulp.task('build', ['yaml', 'images'])
 
 gulp.task('watch', function() {
 	gulp.watch(['./src/**/*', 'gulpfile.js'], ['build'])
