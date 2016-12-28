@@ -4,9 +4,7 @@
   "description": "Inspiration center config",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp",
-    "deploy": "./deploy-ghpages.sh"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -22,6 +20,9 @@
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-jsoncombine": "https://github.com/reflog/gulp-jsoncombine.git",
-    "gulp-yaml": "^1.0.1"
+    "gulp-param": "^1.0.3",
+    "gulp-yaml": "^1.0.1",
+    "through2": "^2.0.3",
+    "video-parser": "^1.9.0"
   }
 }

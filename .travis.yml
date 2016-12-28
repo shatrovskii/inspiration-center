@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - "7"
-script: npm run build
+script: "gulp --youtube ${YOUTUBE_KEY} --vimeo ${VIMEO_KEY}"
 after_success: ./deploy-ghpages.sh
 env:
   global:
