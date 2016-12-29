@@ -7,13 +7,13 @@
 var util = require('util')
 var events = require('events')
 var request = require('request')
-var FB = require('fb')
-var ffmpeg = require('fluent-ffmpeg')
-var redis = require('redis')
+// var FB = require('fb')
+// var ffmpeg = require('fluent-ffmpeg')
+// var redis = require('redis')
 var defaults = require('merge-defaults')
 var moment = require('moment')
 var async = require('async')
-var cheerio = require('cheerio')
+// var cheerio = require('cheerio')
 var qs = require('querystring')
 
 /**
