@@ -1,7 +1,7 @@
 language: node_js
 node_js:
-  - "7"
-script: "gulp --youtube ${YOUTUBE_KEY} --vimeo ${VIMEO_KEY}"
+  - "4"
+script: gulp --youtube $YOUTUBE_API_KEY --vimeo $VIMEO_API_KEY
 after_success: ./deploy-ghpages.sh
 env:
   global:
