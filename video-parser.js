@@ -12,7 +12,7 @@ var request = require('request')
 // var redis = require('redis')
 var defaults = require('merge-defaults')
 var moment = require('moment')
-var async = require('async')
+// var async = require('async')
 // var cheerio = require('cheerio')
 var qs = require('querystring')
 
