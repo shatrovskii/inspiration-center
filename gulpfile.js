@@ -16,6 +16,8 @@ function parseVideo(parser, url) {
 	return new Promise(resolve => {
 		parser.parse((err, videoInfo) => {
 			if (err) {
+				console.log(`Error parsing video: ${url}`)
+				console.dir(err)
 				resolve(null)
 			} else {
 				resolve(videoInfo)
