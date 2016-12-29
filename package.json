@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/shatrovskii/inspiration-center#readme",
   "devDependencies": {
+    "cheerio": "^0.22.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-jsoncombine": "https://github.com/reflog/gulp-jsoncombine.git",

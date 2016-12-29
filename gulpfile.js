@@ -30,7 +30,7 @@ function prepareVideos(videos) {
 	return videos
 		.filter(video => video)
 		.map(result => ({
-			url: result.url,
+			url: result.embedSrc,
 			title: result.name,
 			thumbnail: result.thumb_url,
 		}))

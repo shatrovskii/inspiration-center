@@ -13,7 +13,7 @@ var request = require('request')
 var defaults = require('merge-defaults')
 var moment = require('moment')
 // var async = require('async')
-// var cheerio = require('cheerio')
+var cheerio = require('cheerio')
 var qs = require('querystring')
 
 /**
@@ -363,6 +363,7 @@ Parser.prototype.requestYoutube = function (cb, id) {
     var snippet = item.snippet
     var details = item.contentDetails
     var ratings = typeof details.contentRating !== 'undefined' ? details.contentRating : {}
+    var player = item.player
     // YouTube가 연령 제한 콘텐츠를 식별하기 위해 사용하는 등급입니다.
     if (typeof ratings.ytRating !== 'undefined' && ratings.ytRating === 'ytAgeRestricted') {
       return cb('video.age_restricted')
@@ -385,7 +386,8 @@ Parser.prototype.requestYoutube = function (cb, id) {
         details: {
           definition: details.definition,
           author: channel
-        }
+        },
+        embedSrc: Parser.getEmbedSrc(player.embedHtml)
       })
     }, snippet.channelId)
   })
@@ -541,7 +543,8 @@ Parser.prototype._requestVimeo = function (cb, id) {
           id: result.user.uri.replace('/users/', ''),
           title: result.user.name
         }
-      }
+      },
+      embedSrc: Parser.getEmbedSrc(result.embed.html)
     })
   })
 }
@@ -1066,6 +1069,16 @@ Parser.parseDuration = function (input) {
   }
 
   return 0
+}
+
+Parser.getEmbedSrc = function (embedHtml) {
+  var srcIndex = embedHtml.indexOf('src')
+  if (!~srcIndex) {
+    return ''
+  }
+  
+  var $ = cheerio.load(embedHtml)
+  return $('iframe').attr('src')
 }
 
 module.exports = Parser
