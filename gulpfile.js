@@ -29,8 +29,8 @@ function prepareVideos(videos) {
 		.filter(video => video)
 		.map(result => ({
 			url: result.url,
-			name: result.name,
-			thumbnailUrl: result.thumb_url,
+			title: result.name,
+			thumbnail: result.thumb_url,
 		}))
 }
 
@@ -41,7 +41,7 @@ function populateVideos(config, parser) {
 
 		let videosPromise = Promise.all(parsePromises)
 			.then(results => {
-				config.videos = prepareVideos(results)
+				return prepareVideos(results)
 			})
 
 		// populate videos in categories
@@ -60,16 +60,15 @@ function populateVideos(config, parser) {
 		})
 
 		let categoriesPromise = Promise.all(categoriesPromises)
-			.then(results => {
-				console.log('categories')
-				console.dir(results)
-				config.categories = results
-			})
 
-		Promise.all(videosPromise, categoriesPromise)
-			.then(() => {
-				console.log(config)
+		Promise.all([videosPromise, categoriesPromise])
+			.then((results) => {
+				config.videos = results[0]
+				config.categories = results[1]
 				resolve(config)
+			})
+			.catch(err => {
+				console.log(err)
 			})
 	})
 }
