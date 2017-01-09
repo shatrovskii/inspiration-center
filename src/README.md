@@ -51,6 +51,7 @@ videos.yml
 ```
 
 use-cases.yml, articles.yml
+-
 ```
 - title: Achieve goals with distributed agile teams
 - url: https://help.realtimeboard.com/support/solutions/articles/11000008278-achieve-goals-with-distributed-agile-teams
